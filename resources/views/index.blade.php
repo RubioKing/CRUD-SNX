@@ -1,4 +1,4 @@
-@extends('template')
+@extends('templates.template')
 
 @section('content')
     <h1 class="text-center">Crud</h1> <hr>
@@ -32,7 +32,7 @@
                     <td>{{$clientes->cnpj}}</td>
                     <td>{{$clientes->data_inclusao}}</td>
                     <td>
-                      <a href="#">
+                      <a href="{{url("clientes/$clientes->id")}}">
                         <button class="btn btn-dark">Visualisar</button>
                       </a>
                     </td>

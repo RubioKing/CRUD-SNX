@@ -15,4 +15,4 @@ use App\Http\Controllers\CrudController;
 */
 
 
-Route::resource('/', CrudController::class);
+Route::resource('/clientes', CrudController::class);

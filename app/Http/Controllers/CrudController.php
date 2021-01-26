@@ -59,7 +59,9 @@ class CrudController extends Controller
      */
     public function show($id)
     {
-        //
+        //BUSCA O ID DO CLIENTE PELO ID PASSADO COMO PARAMETRO E RETORNA NA VIEW
+        $cliente = $this->objCliente->find($id);
+        return view('show', compact('cliente'));
     }
 
     /**
