@@ -10,7 +10,8 @@
     </div>
 
     <div class="col-8 m-auto">
-        <table class="table table-dark">
+      @csrf  
+      <table class="table table-dark">
             <thead>
               <tr>
                 <th scope="col">Codigo</th>
@@ -42,8 +43,8 @@
                       </a>
                     </td>
                     <td>
-                      <a href="#">
-                        <button class="btn btn-danger">Deletar</button>
+                      <a href="{{url("clientes/$clientes->id")}}" class="jsDel">
+                        <button class="btn btn-danger" onsubmit="return false;">Deletar</button>
                       </a>
                     </td>
                     

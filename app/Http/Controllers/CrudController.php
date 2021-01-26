@@ -115,6 +115,8 @@ class CrudController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $del = ModelCrud::destroy($id);
+
+        return ($del)?"sim":"não";
     }
 }

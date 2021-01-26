@@ -46,6 +46,7 @@
         
         <!-- MESMA CONDIÇÃO LÁ DE CIMA PARA O BOTÃO -->
         <input class="btn btn-primary" type="submit" value="@if (isset($cliente)) Editar @else Cadastrar @endif">
+        <a href="/clientes" class="btn btn-secondary">Voltar</a>
       </form>
     </div>
 @endsection

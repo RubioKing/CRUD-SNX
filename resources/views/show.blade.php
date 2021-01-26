@@ -4,8 +4,8 @@
     <h1 class="text-center">Visualisar</h1> <hr>
 
     <div class="text-center mt-3 mb-4">
-      <a href="#">
-        <button class="btn btn-success">Visualisar</button>
+      <a href="/clientes">
+        <button class="btn btn-success">Voltar</button>
       </a>
     </div>
 
