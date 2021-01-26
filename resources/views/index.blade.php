@@ -3,6 +3,12 @@
 @section('content')
     <h1 class="text-center">Crud</h1> <hr>
 
+    <div class="text-center mt-3 mb-4">
+      <a href="#">
+        <button class="btn btn-success">Cadastrar</button>
+      </a>
+    </div>
+
     <div class="col-8 m-auto">
         <table class="table table-dark">
             <thead>
@@ -15,24 +21,34 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
+              @foreach ($cliente as $clientes)
+                  @php
+                    $user = $clientes->find($clientes->id)->relUsers;    
+                  @endphp
+                  <tr>
+                    <th scope="row">{{$clientes->id}}</th>
+                    <td>{{$clientes->nome}}</td>
+                    <td>{{$clientes->razao_social}}</td>
+                    <td>{{$clientes->cnpj}}</td>
+                    <td>{{$clientes->data_inclusao}}</td>
+                    <td>
+                      <a href="#">
+                        <button class="btn btn-dark">Visualisar</button>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <button class="btn btn-primary">Editar</button>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <button class="btn btn-danger">Deletar</button>
+                      </a>
+                    </td>
+                    
+                  </tr>
+              @endforeach
             </tbody>
           </table>
     </div>

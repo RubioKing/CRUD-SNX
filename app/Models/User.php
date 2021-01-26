@@ -40,4 +40,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function relClientes()
+    {
+        return $this->hasMany('App\Models\ModelCrud', 'id_user');
+    }
 }

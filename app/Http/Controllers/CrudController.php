@@ -3,11 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ModelCrud;
+use App\Models\User;
 
 class CrudController extends Controller
 {
 
-    private $obj
+    private $objUser;
+    private $objCliente;
+
+    public function __construct()
+    {
+        $this->objUser = new User();
+        $this->objCliente = new ModelCrud();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +25,9 @@ class CrudController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $cliente = $this->objCliente->all();
+        // PASSANDO PRA VIEW TODOS OS CLIENTES.
+        return view('index', compact('cliente'));
     }
 
     /**
