@@ -23,12 +23,6 @@ class CrudRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'nome' => 'required',
-            'id_user' => 'required',
-            'razao_social' => 'required',
-            'cnpj' => 'required',
-            'data_inclusao' => 'required',
-        ];
+        
     }
 }

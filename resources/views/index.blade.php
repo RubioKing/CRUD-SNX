@@ -37,7 +37,7 @@
                       </a>
                     </td>
                     <td>
-                      <a href="#">
+                      <a href="{{url("clientes/$clientes->id/edit")}}">
                         <button class="btn btn-primary">Editar</button>
                       </a>
                     </td>

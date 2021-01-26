@@ -38,7 +38,7 @@ class CrudController extends Controller
      */
     public function create()
     {
-        $users = $this->objUser->all();
+        $users = User::all();
         return view('create', compact('users'));
     }
 
@@ -48,9 +48,9 @@ class CrudController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CrudRequest $request)
+    public function store(request $request)
     {
-        $cad = $this->objCliente->create([
+        $cad = ModelCrud::create([
             'nome' => $request->nomeCliente,
             'id_user' => $request->id_user,
             'razao_social' => $request->razaosocialCliente,
@@ -72,7 +72,7 @@ class CrudController extends Controller
     public function show($id)
     {
         //BUSCA O ID DO CLIENTE PELO ID PASSADO COMO PARAMETRO E RETORNA NA VIEW
-        $cliente = $this->objCliente->find($id);
+        $cliente = ModelCrud::find($id);
         return view('show', compact('cliente'));
     }
 
@@ -84,7 +84,9 @@ class CrudController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente = ModelCrud::find($id);
+        $users = User::all();
+        return view('create', compact('cliente', 'users'));
     }
 
     /**
@@ -94,9 +96,15 @@ class CrudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CrudRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        //
+        ModelCrud::where(['id' => $id])->update([
+            'nome' => $request->nomeCliente,
+            'id_user' => $request->id_user,
+            'razao_social' => $request->razaosocialCliente,
+            'cnpj' => $request->cnpjCliente
+        ]);
+        return redirect('clientes');
     }
 
     /**
