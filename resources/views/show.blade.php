@@ -14,7 +14,7 @@
             <li class="list-group-item bg-dark text-white">Nome: {{$cliente->nome}}</li>
             <li class="list-group-item">Razão Social: {{$cliente->razao_social}}</li>
             <li class="list-group-item">CNPJ: {{$cliente->cnpj}}</li>
-            <li class="list-group-item">Data de cadastro: {{$cliente->data_inclusao}}</li>
+            <li class="list-group-item">Data de criação: {{$cliente->data_inclusao}}</li>
         </ul>
     </div>
 @endsection

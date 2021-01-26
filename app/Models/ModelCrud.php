@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ModelCrud extends Model
 {
+    public $timestamps = false;
     protected $table='cliente';
+    protected $fillable = [
+        'nome', 'id_user', 'razao_social', 'cnpj', 'data_inclusao'
+    ];
 
     public function relUsers()
     {

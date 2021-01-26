@@ -37,7 +37,8 @@ class CrudController extends Controller
      */
     public function create()
     {
-        //
+        $users = $this->objUser->all();
+        return view('create', compact('users'));
     }
 
     /**
@@ -48,7 +49,13 @@ class CrudController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->objCliente->create([
+            'nome' => $request->nomeCliente,
+            'id_user' => $request->id_user,
+            'razao_social' => $request->razaosocialCliente,
+            'cnpj' => $request->cnpjCliente,
+            'data_inclusao' => $request->dataCriacaoCliente,
+        ]);
     }
 
     /**
