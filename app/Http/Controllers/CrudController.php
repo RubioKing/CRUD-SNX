@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CrudRequest;
 use Illuminate\Http\Request;
 use App\Models\ModelCrud;
 use App\Models\User;
@@ -47,15 +48,19 @@ class CrudController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CrudRequest $request)
     {
-        $this->objCliente->create([
+        $cad = $this->objCliente->create([
             'nome' => $request->nomeCliente,
             'id_user' => $request->id_user,
             'razao_social' => $request->razaosocialCliente,
             'cnpj' => $request->cnpjCliente,
             'data_inclusao' => $request->dataCriacaoCliente,
         ]);
+
+        if ($cad) {
+            return redirect('clientes');
+        }
     }
 
     /**
@@ -89,7 +94,7 @@ class CrudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CrudRequest $request, $id)
     {
         //
     }
